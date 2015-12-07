@@ -13,7 +13,7 @@ public class Day3 implements AdventProblem {
     private static final String COORD_TEMPLATE = "%s,%s";
 
     @Override
-    public String solveFirst() throws Exception {
+    public int solveFirst() throws Exception {
         Set<String> visitedCoords = new HashSet<>();
 
         String directions = Files.toString(new File(Resources.getResource("day3_input.txt").toURI()), Charsets.UTF_8);
@@ -42,11 +42,11 @@ public class Day3 implements AdventProblem {
             visitedCoords.add(String.format(COORD_TEMPLATE, x, y));
         }
 
-        return String.valueOf(visitedCoords.size());
+        return visitedCoords.size();
     }
 
     @Override
-    public String solveSecond() throws Exception {
+    public int solveSecond() throws Exception {
         Set<String> visitedCoords = new HashSet<>();
 
         String directions = Files.toString(new File(Resources.getResource("day3_input.txt").toURI()), Charsets.UTF_8);
@@ -79,7 +79,7 @@ public class Day3 implements AdventProblem {
             visitedCoords.add(position.toString());
         }
 
-        return String.valueOf(visitedCoords.size());
+        return visitedCoords.size();
     }
 
     class Position {

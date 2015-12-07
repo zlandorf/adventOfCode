@@ -11,33 +11,33 @@ public class Day4 implements AdventProblem {
     private static final String SECRET = "ckczppom";
 
     @Override
-    public String solveFirst() throws Exception {
-        long lowestNumber = 0;
+    public int solveFirst() throws Exception {
+        int lowestNumber = 0;
         String hash;
         do {
             lowestNumber++;
             hash = hexMd5(String.format("%s%d", SECRET, lowestNumber));
         } while(!hash.startsWith("00000"));
 
-        return String.valueOf(lowestNumber);
+        return lowestNumber;
     }
 
     @Override
-    public String solveSecond() throws Exception {
-        long lowestNumber = 0;
+    public int solveSecond() throws Exception {
+        int lowestNumber = 0;
         String hash;
         do {
             lowestNumber++;
             hash = hexMd5(String.format("%s%d", SECRET, lowestNumber));
         } while(!hash.startsWith("000000"));
 
-        return String.valueOf(lowestNumber);
+        return lowestNumber;
     }
 
     private String hexMd5(String code) throws NoSuchAlgorithmException {
         byte[] digest = MessageDigest.getInstance("MD5").digest(code.getBytes(Charsets.UTF_8));
 
-        StringBuffer hexString = new StringBuffer();
+        StringBuilder hexString = new StringBuilder();
         for (int i = 0 ; i < digest.length; i++) {
             String hex=Integer.toHexString(0xff & digest[i]);
             if(hex.length()==1) hexString.append('0');

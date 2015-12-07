@@ -12,28 +12,24 @@ public class Day5 implements AdventProblem {
 
 
     @Override
-    public String solveFirst() throws Exception {
+    public int solveFirst() throws Exception {
         List<String> strings = Files.readLines(new File(Resources.getResource("day5_input.txt").toURI()), Charsets.UTF_8);
 
-        long count = strings.stream()
+        return (int) strings.stream()
             .filter(Day5::hasThreeVowels)
             .filter(Day5::hasDoubleLetter)
             .filter(Day5::hasNoBadString)
             .count();
-
-        return String.valueOf(count);
     }
 
     @Override
-    public String solveSecond() throws Exception {
+    public int solveSecond() throws Exception {
         List<String> strings = Files.readLines(new File(Resources.getResource("day5_input.txt").toURI()), Charsets.UTF_8);
 
-        long count = strings.stream()
+        return (int) strings.stream()
             .filter(Day5::hasDoublePair)
             .filter(Day5::hasDoubleLetterWithLetterInBetween)
             .count();
-
-        return String.valueOf(count);
     }
 
     static boolean hasThreeVowels(String str) {
