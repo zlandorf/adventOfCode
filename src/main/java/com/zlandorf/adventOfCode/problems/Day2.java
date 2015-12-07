@@ -9,11 +9,17 @@ import java.io.File;
 import java.util.List;
 
 public class Day2 implements AdventProblem {
+
+    private List<String> presentDimensionsList;
+
+    public Day2() throws Exception {
+        presentDimensionsList = Files.readLines(new File(Resources.getResource("day2_input.txt").toURI()), Charsets.UTF_8);
+    }
+
     @Override
     public int solveFirst() throws Exception {
         int total = 0;
-        List<String> presentDimensionList = Files.readLines(new File(Resources.getResource("day2_input.txt").toURI()), Charsets.UTF_8);
-        for (String presentDimensions : presentDimensionList) {
+        for (String presentDimensions : presentDimensionsList) {
             String[] dimensions = presentDimensions.split("x");
             int l = Integer.valueOf(dimensions[0]);
             int w = Integer.valueOf(dimensions[1]);
@@ -31,8 +37,7 @@ public class Day2 implements AdventProblem {
     @Override
     public int solveSecond() throws Exception {
         int total = 0;
-        List<String> presentDimensionList = Files.readLines(new File(Resources.getResource("day2_input.txt").toURI()), Charsets.UTF_8);
-        for (String presentDimensions : presentDimensionList) {
+        for (String presentDimensions : presentDimensionsList) {
             String[] dimensions = presentDimensions.split("x");
             int l = Integer.valueOf(dimensions[0]);
             int w = Integer.valueOf(dimensions[1]);

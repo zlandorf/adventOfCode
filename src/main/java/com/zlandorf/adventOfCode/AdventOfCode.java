@@ -1,10 +1,7 @@
 package com.zlandorf.adventOfCode;
 
 import com.google.common.collect.Lists;
-import com.zlandorf.adventOfCode.problems.Day1;
-import com.zlandorf.adventOfCode.problems.Day2;
-import com.zlandorf.adventOfCode.problems.Day3;
-import com.zlandorf.adventOfCode.problems.Day5;
+import com.zlandorf.adventOfCode.problems.*;
 
 import java.util.List;
 
@@ -14,7 +11,7 @@ public class AdventOfCode {
             new Day1(),
             new Day2(),
             new Day3(),
-//            new Day4() // long to compute
+//            new Day4(), // long to compute
             new Day5()
         );
 

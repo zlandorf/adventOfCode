@@ -12,34 +12,37 @@ import java.util.Set;
 public class Day3 implements AdventProblem {
     private static final String COORD_TEMPLATE = "%s,%s";
 
+    private String directions;
+
+    public Day3() throws Exception {
+        directions = Files.toString(new File(Resources.getResource("day3_input.txt").toURI()), Charsets.UTF_8);
+    }
+
     @Override
     public int solveFirst() throws Exception {
         Set<String> visitedCoords = new HashSet<>();
-
-        String directions = Files.toString(new File(Resources.getResource("day3_input.txt").toURI()), Charsets.UTF_8);
-        int x = 0;
-        int y = 0;
+        Position position = new Position(0, 0);
         // the starting position gets a present
-        visitedCoords.add(String.format(COORD_TEMPLATE, x, y));
+        visitedCoords.add(position.toString());
 
         for (char direction : directions.toCharArray()) {
             switch (direction) {
                 case '<' :
-                    x--;
+                    position.x--;
                     break;
                 case '>':
-                    x++;
+                    position.x++;
                     break;
                 case 'v' :
-                    y--;
+                    position.y--;
                     break;
                 case '^':
-                    y++;
+                    position.y++;
                     break;
                 default:
                     throw new RuntimeException("Unrecognised direction");
             }
-            visitedCoords.add(String.format(COORD_TEMPLATE, x, y));
+            visitedCoords.add(position.toString());
         }
 
         return visitedCoords.size();
@@ -49,7 +52,6 @@ public class Day3 implements AdventProblem {
     public int solveSecond() throws Exception {
         Set<String> visitedCoords = new HashSet<>();
 
-        String directions = Files.toString(new File(Resources.getResource("day3_input.txt").toURI()), Charsets.UTF_8);
         Position[] positions = new Position[] {
           new Position(0, 0),
           new Position(0, 0),

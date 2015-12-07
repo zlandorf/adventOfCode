@@ -10,11 +10,14 @@ import java.util.List;
 
 public class Day5 implements AdventProblem {
 
+    private List<String> strings;
+
+    public Day5() throws Exception {
+        strings = Files.readLines(new File(Resources.getResource("day5_input.txt").toURI()), Charsets.UTF_8);
+    }
 
     @Override
     public int solveFirst() throws Exception {
-        List<String> strings = Files.readLines(new File(Resources.getResource("day5_input.txt").toURI()), Charsets.UTF_8);
-
         return (int) strings.stream()
             .filter(Day5::hasThreeVowels)
             .filter(Day5::hasDoubleLetter)
@@ -24,8 +27,6 @@ public class Day5 implements AdventProblem {
 
     @Override
     public int solveSecond() throws Exception {
-        List<String> strings = Files.readLines(new File(Resources.getResource("day5_input.txt").toURI()), Charsets.UTF_8);
-
         return (int) strings.stream()
             .filter(Day5::hasDoublePair)
             .filter(Day5::hasDoubleLetterWithLetterInBetween)
