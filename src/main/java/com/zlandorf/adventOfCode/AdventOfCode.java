@@ -12,7 +12,8 @@ public class AdventOfCode {
             new Day2(),
             new Day3(),
 //            new Day4(), // long to compute
-            new Day5()
+            new Day5(),
+            new Day6()
         );
 
         problems.stream().forEach(problem -> {
@@ -22,6 +23,7 @@ public class AdventOfCode {
                 System.out.println(String.format("%s second : %d", problem.getClass().getSimpleName(), problem.solveSecond()));
             } catch (Exception e) {
                 System.err.println("failed to run problem : " + problem.getClass().getSimpleName());
+                e.printStackTrace();
             }
         });
     }

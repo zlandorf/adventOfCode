@@ -10,7 +10,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Day3 implements AdventProblem {
-    private static final String COORD_TEMPLATE = "%s,%s";
 
     private String directions;
 
@@ -84,18 +83,4 @@ public class Day3 implements AdventProblem {
         return visitedCoords.size();
     }
 
-    class Position {
-        public Integer x;
-        public Integer y;
-
-        public Position(Integer x, Integer y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        @Override
-        public String toString() {
-            return String.format(COORD_TEMPLATE, x, y);
-        }
-    }
 }
