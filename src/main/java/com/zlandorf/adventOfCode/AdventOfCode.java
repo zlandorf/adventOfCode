@@ -8,12 +8,13 @@ import java.util.List;
 public class AdventOfCode {
     public static void main(String[] argv) throws Exception {
         List<AdventProblem> problems = Lists.newArrayList(
-            new Day1(),
-            new Day2(),
-            new Day3(),
-//            new Day4(), // long to compute
-            new Day5(),
-            new Day6()
+//            new Day1(),
+//            new Day2(),
+//            new Day3(),
+////            new Day4(), // long to compute
+//            new Day5(),
+//            new Day6(),
+            new Day7()
         );
 
         problems.stream().forEach(problem -> {
