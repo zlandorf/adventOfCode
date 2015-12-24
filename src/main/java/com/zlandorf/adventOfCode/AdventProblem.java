@@ -1,6 +1,6 @@
 package com.zlandorf.adventOfCode;
 
-public interface AdventProblem {
-    int solveFirst() throws Exception;
-    int solveSecond() throws Exception;
+public interface AdventProblem<T> {
+    T solveFirst() throws Exception;
+    T solveSecond() throws Exception;
 }

@@ -8,22 +8,22 @@ import com.zlandorf.adventOfCode.AdventProblem;
 import java.io.File;
 import java.util.List;
 
-public class Day8 implements AdventProblem {
+public class Day8 implements AdventProblem<Integer> {
     private List<String> strings;
 
-    public Day8() throws Exception {
+    public  Day8() throws Exception {
         strings = Files.readLines(new File(Resources.getResource("day8_input.txt").toURI()), Charsets.UTF_8);
     }
 
     @Override
-    public int solveFirst() throws Exception {
+    public Integer solveFirst() throws Exception {
         return strings.stream()
             .mapToInt(s -> s.length() - unescape(s).length())
             .sum();
     }
 
     @Override
-    public int solveSecond() throws Exception {
+    public Integer solveSecond() throws Exception {
         return strings.stream()
             .mapToInt(s -> escape(s).length() - s.length())
             .sum();

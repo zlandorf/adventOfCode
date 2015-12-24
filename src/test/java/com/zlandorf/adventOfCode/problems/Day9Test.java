@@ -9,12 +9,12 @@ public class Day9Test {
     @Test
     public void testSolveFirst() throws Exception {
         Day9 day9 = new Day9();
-        assertEquals(605, day9.solveFirst());
+        assertEquals(605, (int) day9.solveFirst());
     }
 
     @Test
     public void testSolveSecond() throws Exception {
         Day9 day9 = new Day9();
-        assertEquals(982, day9.solveSecond());
+        assertEquals(982, (int) day9.solveSecond());
     }
 }

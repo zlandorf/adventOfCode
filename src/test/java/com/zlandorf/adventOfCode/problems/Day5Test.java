@@ -30,7 +30,7 @@ public class Day5Test {
     public void testSolveFirst() throws Exception {
         Day5 day5 = new Day5();
 
-        assertEquals("2", day5.solveFirst());
+        assertEquals(2, (int)day5.solveFirst());
     }
 
     @Test

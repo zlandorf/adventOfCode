@@ -6,12 +6,12 @@ import com.zlandorf.adventOfCode.AdventProblem;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Day4 implements AdventProblem {
+public class Day4 implements AdventProblem<Integer> {
 
     private static final String SECRET = "ckczppom";
 
     @Override
-    public int solveFirst() throws Exception {
+    public Integer solveFirst() throws Exception {
         int lowestNumber = 0;
         String hash;
         do {
@@ -23,7 +23,7 @@ public class Day4 implements AdventProblem {
     }
 
     @Override
-    public int solveSecond() throws Exception {
+    public Integer solveSecond() throws Exception {
         int lowestNumber = 0;
         String hash;
         do {

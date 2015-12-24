@@ -17,14 +17,15 @@ public class AdventOfCode {
 //            new Day7(),
 //            new Day8(),
 //            new Day9(),
-            new Day10()
+//            new Day10(),
+            new Day11()
         );
 
         problems.stream().forEach(problem -> {
             try {
                 System.out.println("-----------------------------------------------------");
-                System.out.println(String.format("%s first  : %d", problem.getClass().getSimpleName(), problem.solveFirst()));
-                System.out.println(String.format("%s second : %d", problem.getClass().getSimpleName(), problem.solveSecond()));
+                System.out.println(String.format("%s first  : %s", problem.getClass().getSimpleName(), problem.solveFirst()));
+                System.out.println(String.format("%s second : %s", problem.getClass().getSimpleName(), problem.solveSecond()));
             } catch (Exception e) {
                 System.err.println("failed to run problem : " + problem.getClass().getSimpleName());
                 e.printStackTrace();

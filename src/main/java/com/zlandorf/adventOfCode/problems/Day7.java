@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Day7 implements AdventProblem {
+public class Day7 implements AdventProblem<Integer> {
     private static final Pattern INSTRUCTIONS_PATTERN = Pattern.compile("^(.*) -> (\\w+)$");
 
     private List<String> rawInstructions;
@@ -23,7 +23,7 @@ public class Day7 implements AdventProblem {
     }
 
     @Override
-    public int solveFirst() throws Exception {
+    public Integer solveFirst() throws Exception {
         Map<String, Wire> wireMap = Maps.newHashMap();
         SignalSourceFactory gateFactory = new SignalSourceFactory(wireMap);
 
@@ -46,7 +46,7 @@ public class Day7 implements AdventProblem {
     }
 
     @Override
-    public int solveSecond() throws Exception {
+    public Integer solveSecond() throws Exception {
         Map<String, Wire> wireMap = Maps.newHashMap();
         SignalSourceFactory gateFactory = new SignalSourceFactory(wireMap);
 

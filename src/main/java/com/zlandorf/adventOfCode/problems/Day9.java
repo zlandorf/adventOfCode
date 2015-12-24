@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Day9 implements AdventProblem {
+public class Day9 implements AdventProblem<Integer> {
 
     private static final Pattern DISTANCE_PATTERN = Pattern.compile("(\\w+) to (\\w+) = (\\d+)");
 
@@ -48,7 +48,7 @@ public class Day9 implements AdventProblem {
     }
 
     @Override
-    public int solveFirst() throws Exception {
+    public Integer solveFirst() throws Exception {
         List<Node> possibleRoutes = Lists.newArrayList();
         for (String node : edgesByNode.keySet()) {
             possibleRoutes.add(getNodeTree(new Node(node, 0), Lists.newArrayList(node)));
@@ -65,7 +65,7 @@ public class Day9 implements AdventProblem {
     }
 
     @Override
-    public int solveSecond() throws Exception {
+    public Integer solveSecond() throws Exception {
         List<Node> possibleRoutes = Lists.newArrayList();
         for (String node : edgesByNode.keySet()) {
             possibleRoutes.add(getNodeTree(new Node(node, 0), Lists.newArrayList(node)));

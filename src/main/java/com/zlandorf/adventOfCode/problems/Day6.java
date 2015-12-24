@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Day6 implements AdventProblem {
+public class Day6 implements AdventProblem<Integer> {
 
     private static final Pattern INSTRUCTIONS_PATTERN = Pattern.compile("^(turn on|turn off|toggle) (\\d+),(\\d+) through (\\d+),(\\d+)$");
 
@@ -27,7 +27,7 @@ public class Day6 implements AdventProblem {
     }
 
     @Override
-    public int solveFirst() throws Exception {
+    public Integer solveFirst() throws Exception {
         Boolean[][] lights = new Boolean[1000][1000];
         // turn off all lights first
         lights = execute(lights, new Instruction<>(new Position(0, 0), new Position(999, 999), new TurnOff()));
@@ -43,7 +43,7 @@ public class Day6 implements AdventProblem {
     }
 
     @Override
-    public int solveSecond() throws Exception {
+    public Integer solveSecond() throws Exception {
         Integer[][] lights = new Integer[1000][1000];
         // set all intensities to zero first
         lights = execute(lights, new Instruction<>(new Position(0, 0), new Position(999, 999), new SetToZero()));

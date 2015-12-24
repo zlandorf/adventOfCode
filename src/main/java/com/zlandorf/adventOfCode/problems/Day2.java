@@ -8,7 +8,7 @@ import com.zlandorf.adventOfCode.AdventProblem;
 import java.io.File;
 import java.util.List;
 
-public class Day2 implements AdventProblem {
+public class Day2 implements AdventProblem<Integer> {
 
     private List<String> presentDimensionsList;
 
@@ -17,7 +17,7 @@ public class Day2 implements AdventProblem {
     }
 
     @Override
-    public int solveFirst() throws Exception {
+    public Integer solveFirst() throws Exception {
         int total = 0;
         for (String presentDimensions : presentDimensionsList) {
             String[] dimensions = presentDimensions.split("x");
@@ -35,7 +35,7 @@ public class Day2 implements AdventProblem {
     }
 
     @Override
-    public int solveSecond() throws Exception {
+    public Integer solveSecond() throws Exception {
         int total = 0;
         for (String presentDimensions : presentDimensionsList) {
             String[] dimensions = presentDimensions.split("x");

@@ -90,12 +90,12 @@ public class Day8Test {
     @Test
     public void testSolveFirst() throws Exception {
         Day8 day8 = new Day8();
-        assertEquals(12, day8.solveFirst());
+        assertEquals(12, (int)day8.solveFirst());
     }
 
     @Test
     public void testSolveSecond() throws Exception {
         Day8 day8 = new Day8();
-        assertEquals(19, day8.solveSecond());
+        assertEquals(19, (int)day8.solveSecond());
     }
 }

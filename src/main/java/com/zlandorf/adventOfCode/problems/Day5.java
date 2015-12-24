@@ -8,7 +8,7 @@ import com.zlandorf.adventOfCode.AdventProblem;
 import java.io.File;
 import java.util.List;
 
-public class Day5 implements AdventProblem {
+public class Day5 implements AdventProblem<Integer> {
 
     private List<String> strings;
 
@@ -17,7 +17,7 @@ public class Day5 implements AdventProblem {
     }
 
     @Override
-    public int solveFirst() throws Exception {
+    public Integer solveFirst() throws Exception {
         return (int) strings.stream()
             .filter(Day5::hasThreeVowels)
             .filter(Day5::hasDoubleLetter)
@@ -26,7 +26,7 @@ public class Day5 implements AdventProblem {
     }
 
     @Override
-    public int solveSecond() throws Exception {
+    public Integer solveSecond() throws Exception {
         return (int) strings.stream()
             .filter(Day5::hasDoublePair)
             .filter(Day5::hasDoubleLetterWithLetterInBetween)

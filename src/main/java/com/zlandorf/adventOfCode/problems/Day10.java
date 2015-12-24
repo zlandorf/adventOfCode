@@ -2,7 +2,7 @@ package com.zlandorf.adventOfCode.problems;
 
 import com.zlandorf.adventOfCode.AdventProblem;
 
-public class Day10 implements AdventProblem {
+public class Day10 implements AdventProblem<Integer> {
 
     private static String INPUT = "1321131112";
 
@@ -30,7 +30,7 @@ public class Day10 implements AdventProblem {
 
 
     @Override
-    public int solveFirst() throws Exception {
+    public Integer solveFirst() throws Exception {
         String result = INPUT;
         for (int i = 0; i < 40; i++) {
             result = process(result);
@@ -39,10 +39,9 @@ public class Day10 implements AdventProblem {
     }
 
     @Override
-    public int solveSecond() throws Exception {
+    public Integer solveSecond() throws Exception {
         String result = INPUT;
         for (int i = 0; i < 50; i++) {
-            System.out.println(i);
             result = process(result);
         }
         return result.length();

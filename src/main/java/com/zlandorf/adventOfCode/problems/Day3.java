@@ -9,7 +9,7 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Day3 implements AdventProblem {
+public class Day3 implements AdventProblem<Integer> {
 
     private String directions;
 
@@ -18,7 +18,7 @@ public class Day3 implements AdventProblem {
     }
 
     @Override
-    public int solveFirst() throws Exception {
+    public Integer solveFirst() throws Exception {
         Set<String> visitedCoords = new HashSet<>();
         Position position = new Position(0, 0);
         // the starting position gets a present
@@ -48,7 +48,7 @@ public class Day3 implements AdventProblem {
     }
 
     @Override
-    public int solveSecond() throws Exception {
+    public Integer solveSecond() throws Exception {
         Set<String> visitedCoords = new HashSet<>();
 
         Position[] positions = new Position[] {
