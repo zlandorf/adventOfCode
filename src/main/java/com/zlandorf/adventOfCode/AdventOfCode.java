@@ -21,7 +21,8 @@ public class AdventOfCode {
 //            new Day11(),
 //            new Day12(),
 //            new Day14(),
-            new Day15()
+//            new Day15(),
+            new Day16()
         );
 
         problems.stream().forEach(problem -> {
