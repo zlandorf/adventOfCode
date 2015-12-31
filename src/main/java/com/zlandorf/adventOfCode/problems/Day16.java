@@ -1,14 +1,12 @@
 package com.zlandorf.adventOfCode.problems;
 
 import com.google.common.base.Charsets;
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.io.Files;
 import com.google.common.io.Resources;
 import com.zlandorf.adventOfCode.AdventProblem;
 
 import java.io.File;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
