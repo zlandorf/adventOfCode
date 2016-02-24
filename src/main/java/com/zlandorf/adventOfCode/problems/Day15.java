@@ -74,28 +74,33 @@ public class Day15 implements AdventProblem<Integer> {
 
     protected boolean permute(Integer[] doses) {
         if (doses[0] == MAX_DOSE) {
+            //finished permuting all possible values
             return false;
         }
 
-        for (int i = doses.length - 1; i >= 0; i--) {
-            int currentTotal = 0;
-            for (int j = 0; j < i; j++) {
-                currentTotal += doses[j];
+        Integer[] cumulatedValues = new Integer[doses.length];
+        int lastNonNullIndex = 0;
+        for (int i = 0; i < doses.length; i++) {
+            cumulatedValues[i] = doses[i];
+            if (i > 0) {
+                cumulatedValues[i] += cumulatedValues[i - 1];
             }
-            if (doses[i] < MAX_DOSE - currentTotal) {
-                doses[i]++;
-                for (int j = i + 1; j < doses.length; j++) {
-                    doses[j] = 0;
-                }
-                break;
+            if (doses[i] > 0) {
+                lastNonNullIndex = i;
             }
-        }
-        int totalDoses = 0;
-        for (int dose : doses) {
-            totalDoses += dose;
         }
 
-        return totalDoses >= MAX_DOSE || permute(doses);
+        if (lastNonNullIndex > 0) {
+            if (lastNonNullIndex < doses.length - 1 && cumulatedValues[lastNonNullIndex] >= MAX_DOSE) {
+                doses[lastNonNullIndex] = 0;
+                doses[doses.length - 1] = MAX_DOSE - cumulatedValues[lastNonNullIndex - 1];
+            }
+
+            doses[lastNonNullIndex - 1]++;
+            doses[lastNonNullIndex]--;
+        }
+
+        return true;
     }
 
     protected int score(Integer[] doses) throws Exception {
