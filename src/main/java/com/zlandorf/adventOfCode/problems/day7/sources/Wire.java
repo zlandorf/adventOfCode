@@ -1,9 +1,10 @@
-package com.zlandorf.adventOfCode.problems.day7;
+package com.zlandorf.adventOfCode.problems.day7.sources;
+
+import com.zlandorf.adventOfCode.problems.day7.SignalSource;
 
 public class Wire implements SignalSource {
     private SignalSource signalSource;
     private String name;
-    private Signal cache = null;
 
     public Wire(SignalSource signalSource, String name) {
         this.signalSource = signalSource;

@@ -5,17 +5,14 @@ import com.google.common.collect.Maps;
 import com.google.common.io.Files;
 import com.google.common.io.Resources;
 import com.zlandorf.adventOfCode.AdventProblem;
-import com.zlandorf.adventOfCode.problems.day7.*;
+import com.zlandorf.adventOfCode.problems.day7.WireFactory;
+import com.zlandorf.adventOfCode.problems.day7.sources.Wire;
 
 import java.io.File;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Day7 implements AdventProblem<Integer> {
-    private static final Pattern INSTRUCTIONS_PATTERN = Pattern.compile("^(.*) -> (\\w+)$");
-
     private List<String> rawInstructions;
 
     public Day7() throws Exception {
@@ -25,21 +22,11 @@ public class Day7 implements AdventProblem<Integer> {
     @Override
     public Integer solveFirst() throws Exception {
         Map<String, Wire> wireMap = Maps.newHashMap();
-        SignalSourceFactory gateFactory = new SignalSourceFactory(wireMap);
+        WireFactory wireFactory = new WireFactory();
 
         for (String rawInstruction : rawInstructions) {
-            Matcher instructionMatcher = INSTRUCTIONS_PATTERN.matcher(rawInstruction);
-            if (instructionMatcher.matches()) {
-                SignalSource wireSource = new CachedSignalSource(gateFactory.newInstance(instructionMatcher.group(1)));
-                String wireName = instructionMatcher.group(2);
-                if (wireMap.containsKey(wireName)) {
-                    wireMap.get(wireName).setSignalSource(wireSource);
-                } else {
-                    wireMap.put(wireName, new Wire(wireSource, wireName));
-                }
-            } else {
-                throw new RuntimeException(String.format("Failed to match instruction '%s'", rawInstruction));
-            }
+            Wire wire = wireFactory.getWireFromInstruction(rawInstruction);
+            wireMap.put(wire.getName(), wire);
         }
 
         return wireMap.get("a").getSignal().getValue();
@@ -48,7 +35,7 @@ public class Day7 implements AdventProblem<Integer> {
     @Override
     public Integer solveSecond() throws Exception {
         Map<String, Wire> wireMap = Maps.newHashMap();
-        SignalSourceFactory gateFactory = new SignalSourceFactory(wireMap);
+        WireFactory wireFactory = new WireFactory();
 
         for (String rawInstruction : rawInstructions) {
             if (rawInstruction.matches("^(\\d+) -> b$")) {
@@ -56,18 +43,8 @@ public class Day7 implements AdventProblem<Integer> {
                 rawInstruction = rawInstruction.replaceAll("(\\d+)", String.valueOf(solveFirst()));
             }
 
-            Matcher instructionMatcher = INSTRUCTIONS_PATTERN.matcher(rawInstruction);
-            if (instructionMatcher.matches()) {
-                SignalSource wireSource = new CachedSignalSource(gateFactory.newInstance(instructionMatcher.group(1)));
-                String wireName = instructionMatcher.group(2);
-                if (wireMap.containsKey(wireName)) {
-                    wireMap.get(wireName).setSignalSource(wireSource);
-                } else {
-                    wireMap.put(wireName, new Wire(wireSource, wireName));
-                }
-            } else {
-                throw new RuntimeException(String.format("Failed to match instruction '%s'", rawInstruction));
-            }
+            Wire wire = wireFactory.getWireFromInstruction(rawInstruction);
+            wireMap.put(wire.getName(), wire);
         }
 
         return wireMap.get("a").getSignal().getValue();

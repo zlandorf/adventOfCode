@@ -1,6 +1,6 @@
-package com.zlandorf.adventOfCode.problems.day7.gates;
+package com.zlandorf.adventOfCode.problems.day7.sources.gates;
 
-import com.zlandorf.adventOfCode.problems.day7.Signal;
+import com.zlandorf.adventOfCode.problems.day7.sources.Signal;
 import com.zlandorf.adventOfCode.problems.day7.SignalSource;
 
 public class LShiftGate implements SignalSource {
